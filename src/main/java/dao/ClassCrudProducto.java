@@ -13,8 +13,8 @@ public class ClassCrudProducto implements InterfaceProductoable{
 
 	@Override
 	public void RegistrarProducto(TblProductocl2 tblprod) {
-		EntityManagerFactory pr=Persistence.createEntityManagerFactory("CL2_RODRIGUEZ");
-		EntityManager em=pr.createEntityManager();
+		EntityManagerFactory cnx = Persistence.createEntityManagerFactory("CL2_RODRIGUEZ");
+		EntityManager em= cnx.createEntityManager();
 		em.getTransaction().begin();
 		em.persist(tblprod);
 		em.getTransaction().commit();
@@ -24,10 +24,10 @@ public class ClassCrudProducto implements InterfaceProductoable{
 
 	@Override
 	public List<TblProductocl2> ListaProducto() {
-		EntityManagerFactory pr=Persistence.createEntityManagerFactory("CL2_RODRIGUEZ");
-		EntityManager eman=pr.createEntityManager();
-		eman.getTransaction().begin();
-		List<TblProductocl2> listado=eman.createQuery("select prod from TblProductocl2 prod",TblProductocl2.class).getResultList();
+		EntityManagerFactory cnx =Persistence.createEntityManagerFactory("CL2_RODRIGUEZ");
+		EntityManager em = cnx.createEntityManager();
+		em.getTransaction().begin();
+		List<TblProductocl2> listado = em.createQuery("select prod from TblProductocl2 prod",TblProductocl2.class).getResultList();
 		return listado;
 	}
 

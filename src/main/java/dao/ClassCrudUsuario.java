@@ -1,7 +1,5 @@
 package dao;
 
-import java.util.List;
-
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -34,7 +32,7 @@ public class ClassCrudUsuario implements InterfaceUsuarioable {
 		cons.setParameter("y",usu.getPasswordcl2());
 		
 		String mensaje = ""; 
-		TblUsuariocl2 u;
+		TblUsuariocl2  u;
 		try{ 
 			u=(TblUsuariocl2) cons.getSingleResult();
 			mensaje = "Bienvenido : " + usu.getUsuariocl2();
@@ -45,5 +43,5 @@ public class ClassCrudUsuario implements InterfaceUsuarioable {
 					
 		return mensaje;
 	}
-
+	
 }
